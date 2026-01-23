@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App - AWS Free Tier</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 800px; margin: auto; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        .note { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>📝 AWS Notes App (Free Tier)</h1>
+    <form method="POST" action="/add">
+        <input name="title" placeholder="Note Title" required>
+        <textarea name="body" rows="4" placeholder="What's on your mind?" required></textarea>
+        <button>Add Note</button>
+    </form>
+    <hr>
+    {% for note in notes %}
+    <div class="note">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.body }}</p>
+        <small>{{ note.created_at }}</small>
+    </div>
+    {% endfor %}
+</body>
+</html>
